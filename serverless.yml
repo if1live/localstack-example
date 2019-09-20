@@ -1,5 +1,5 @@
 service:
-  name: example
+  name: example-hello
 #app: your-app-name
 #tenant: your-tenant-name
 
@@ -18,12 +18,6 @@ custom:
   localstack:
     stages:
       - local
-    host: http://localhost
-    # endpointFile: localstack_endpoints.json
-    # lambda:
-    #   # Enable this flag to improve performance
-    #   mountCode: True
-
 
 functions:
   hello:

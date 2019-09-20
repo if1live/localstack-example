@@ -2,7 +2,7 @@ version: '2.1'
 
 services:
   localstack:
-    image: localstack/localstack
+    image: localstack/localstack:0.10.3
     ports:
       - "4567-4597:4567-4597"
       - "${PORT_WEB_UI-8080}:${PORT_WEB_UI-8080}"
@@ -12,8 +12,7 @@ services:
       - DEBUG=${DEBUG- }
       - DATA_DIR=${DATA_DIR- }
       - PORT_WEB_UI=${PORT_WEB_UI- }
-      - LAMBDA_EXECUTOR=${LAMBDA_EXECUTOR- }
-      # - LAMBDA_REMOTE_DOCKER=${LAMBDA_REMOTE_DOCKER-false }
+      - LAMBDA_EXECUTOR=docker-reuse
       - KINESIS_ERROR_PROBABILITY=${KINESIS_ERROR_PROBABILITY- }
       - DOCKER_HOST=unix:///var/run/docker.sock
     volumes:
