@@ -1,0 +1,32 @@
+service:
+  name: example
+#app: your-app-name
+#tenant: your-tenant-name
+
+plugins:
+  - serverless-localstack
+  - serverless-webpack
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+
+custom:
+  localstack:
+    stages:
+      - local
+    host: http://localhost
+    # endpointFile: localstack_endpoints.json
+    # lambda:
+    #   # Enable this flag to improve performance
+    #   mountCode: True
+
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          method: get
+          path: hello
