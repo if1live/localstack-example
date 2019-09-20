@@ -12,6 +12,8 @@ provider:
   name: aws
   runtime: nodejs10.x
 
+  region: ap-northeast-2
+
 custom:
   localstack:
     stages:
